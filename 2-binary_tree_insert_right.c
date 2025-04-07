@@ -18,25 +18,18 @@ binary_tree_t *new_node;
 binary_tree_t *old_right;
 if (parent == NULL)
 return (NULL);
-/* Create the new node */
 new_node = binary_tree_node(parent, value);
 if (new_node == NULL)
 return (NULL);
-/* If the parent already has a right child */
 if (parent->right != NULL)
 {
-/* Store the old right child */
 old_right = parent->right;
-/* Set the new node as the right child of the parent */
 parent->right = new_node;
-/* Set the old right child as the right child of the new node */
 new_node->right = old_right;
-/* Update the parent of the old right child */
 old_right->parent = new_node;
 }
 else
 {
-/* Otherwise, simply set the new node as the right child */
 parent->right = new_node;
 }
 return (new_node);
